@@ -118,7 +118,7 @@ function Home() {
               </a>
 
               <a
-                href="/project"
+                href="#project"
                 className=" bg-linear-to-r from-pink-400 to-blue-500  px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300 text-center "
                 // initial={{opacity:0, y: 20}}
                 // animate={{opacity:1, y:0}}
