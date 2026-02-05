@@ -106,7 +106,7 @@ function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <a
-                href="/Rajveer Resume.pdf"
+                href="/Rajveer_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" bg-linear-to-r from-pink-400 to-blue-500  px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300 text-center "
