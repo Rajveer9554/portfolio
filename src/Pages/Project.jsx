@@ -21,7 +21,7 @@ function Project() {
           <p className=" mt-2 text-base sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-light">
             Here are some of my projects that showcase my skills and expertise in web development. 
           </p>
-          <li className="mt-3   ">
+          <li className="mt-3 border-2 border-gray-500 p-4 rounded-lg">
             <span className='text-xl font-bold'>
             Awaze-E-Janata:👉🏻👉🏻
             </span>
@@ -44,7 +44,7 @@ function Project() {
               Technologies:React.js, Tailwind Css, Javascript{" "}
             </h1>
           </li>
-          <li className="mt-7 ">
+          <li className="mt-7 border-2 border-gray-500 p-4 rounded-lg">
             <span className='text-xl font-bold mt-7'> Myself Porfolio:{" 👉🏻👉🏻 "} </span>
             <a
               href="https://rajveer9554.github.io/Myself-portfolio/"
@@ -62,7 +62,7 @@ function Project() {
               comprehensive view of my capabilities.
             </h1>
           </li>
-          <li className="mt-7 ">
+          <li className="mt-7 border-2 border-gray-500 p-4 rounded-lg">
             <span className='text-xl font-bold'> Tic-Tac-Toe:{" 👉🏻👉🏻 "} </span>
             <a
               href="https://rajveer9554.github.io/Tic-Tac-Toe/"
