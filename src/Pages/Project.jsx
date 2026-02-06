@@ -26,7 +26,7 @@ function Project() {
             Awaze-E-Janata:👉🏻👉🏻
             </span>
             <a
-              href="https://awaze-e-janata.netlify.app"
+              href="https://awaze-e-janta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-green-500 hover:underline transition-colors text-white"
