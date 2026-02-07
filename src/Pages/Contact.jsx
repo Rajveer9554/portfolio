@@ -13,7 +13,7 @@ function Contact() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-10">
         
         {/* LEFT */}
-        <div className="p-6 sm:p-8 bg-white rounded-lg shadow-lg">
+        <div className="p-6 sm:p-8  rounded-lg shadow-lg">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 text-center">
             Get in touch
           </h1>
@@ -22,7 +22,7 @@ function Contact() {
           <div className="mt-8 space-y-4 text-gray-600 text-sm sm:text-base">
 
             {/* Location */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -41,14 +41,14 @@ function Contact() {
             </div>
 
             {/* Phone */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <span className="font-semibold">
                 📞 +91 9554120959
               </span>
             </div>
 
             {/* Email */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <a
                 href="mailto:rajveer786067@gmail.com"
                 className="text-blue-600 font-semibold hover:underline break-all"
@@ -58,7 +58,7 @@ function Contact() {
             </div>
 
             {/* LinkedIn */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <a
                 href="https://www.linkedin.com/in/rajveer-pratap-singh"
                 target="_blank"
@@ -70,7 +70,7 @@ function Contact() {
             </div>
 
             {/* Instagram */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <a
                 href="https://www.instagram.com/__rajveer_pra_14"
                 target="_blank"
@@ -82,7 +82,7 @@ function Contact() {
             </div>
 
             {/* WhatsApp */}
-            <div className="flex items-center justify-center sm:justify-start gap-3">
+            <div className="flex items-center justify-center sm:justify-start gap-3 border-2 border-gray-300 rounded-lg p-4 hover:bg-gray-100 transition-colors">
               <svg
                 viewBox="0 0 32 32"
                 fill="currentColor"

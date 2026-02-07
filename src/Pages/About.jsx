@@ -24,7 +24,7 @@ function About() {
 
     {/* content */}
       <motion.div
-        className=" max-w-4xl mr-4 mx-auto   mt-24 p-10 mb-50 rounded-3xl bg-transparent "
+        className=" max-w-4xl mr-4 mx-auto   mt-24 p-10 mb-50 rounded-3xl bg-transparent  border-2 border-transparent"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -33,13 +33,14 @@ function About() {
           Hello! I'm Rajveer Pratap Singh
         </h2>
 
-        <p className="font- mt-6 text-white text-xl">
-          <li >
+        <p className="font- mt-6 text-white text-xl ">
+          <li className=''>
+  
             {" "}
             A passionate Final-Year B.Tech Computer Science Student with a deep
             interest in building modern web applications.
           </li>
-          <li className='mt-5'>
+          <li className='mt-5   '>
             I specialize in creating beautiful, responsive, and interactive
             front-end designs using React.js, Tailwind CSS, and other
             cutting-edge tools.
