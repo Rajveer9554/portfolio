@@ -10,6 +10,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { SiPostman } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { FaNode } from "react-icons/fa6";
+import { FaFigma } from "react-icons/fa6";
 import coding3 from "../assets/coding3.png";
 
 function Skills() {
@@ -94,6 +95,10 @@ function Skills() {
   <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
     <FaNode size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>Node Js</p>
+  </div>
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+    <FaFigma  size={60} className="hover:text-yellow-400 transition-colors duration-300" />
+    <p>Figma</p>
   </div>
 </motion.div>
 
