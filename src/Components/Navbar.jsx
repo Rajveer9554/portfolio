@@ -4,7 +4,6 @@ import logo from '../assets/logo.png';
 import { CiMenuFries } from "react-icons/ci";
 import { useEffect } from 'react';
 import { useRef } from 'react';
-
 export default function Navbar() {
 const [menuOpen, setMenuOpen]= useState(false);
 const [visible ,setVisible]= useState(true);
