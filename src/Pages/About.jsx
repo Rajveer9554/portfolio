@@ -131,7 +131,7 @@ function About() {
         </h2>
 
         {/* List */}
-        <ul className="space-y-5 text-lg leading-relaxed">
+        <ul className="space-y-5 text- leading-relaxed">
           {[
             "A passionate Final-Year B.Tech Computer Science Student with a deep interest in building modern web applications.",
             "I specialize in creating beautiful, responsive, and interactive front-end designs using React.js, Tailwind CSS, and other cutting-edge tools.",
@@ -146,7 +146,7 @@ function About() {
               key={index}
               whileHover={{ scale: 1.02 }}
               className="
-                p-5
+                p-3
                 rounded-xl
                 border-2 border-transparent
                 bg-white/0

@@ -43,6 +43,7 @@ function Skills() {
          <motion.div
   className="
     flex 
+    gap-5
     flex-wrap 
     mt-40 
     text-gray-300 
@@ -55,48 +56,48 @@ function Skills() {
   transition={{ duration: 1 }}
 >
   {/* Skill Item */}
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 hover:border-green-400 rounded-2xl">
     <FaReact size={60} className="hover:text-cyan-400 transition-colors duration-300" />
     <p>React</p>
   </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <RiTailwindCssFill size={60} className="hover:text-sky-400 transition-colors duration-300" />
     <p>Tailwind</p>
   </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <FaJsSquare size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>JavaScript</p>
   </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl hover:border-green-400">
     <FaHtml5 size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>HTML</p>
   </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <FaCss3Alt size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>CSS</p>
   </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <DiMongodb size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>MongoDB</p>
   </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl hover:border-green-400">
     <SiPostman size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>Postman</p>
   </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <FaGithub size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>GitHub</p>
   </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
     <FaNode size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>Node Js</p>
   </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12">
+  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl ">
     <FaFigma  size={60} className="hover:text-yellow-400 transition-colors duration-300" />
     <p>Figma</p>
   </div>

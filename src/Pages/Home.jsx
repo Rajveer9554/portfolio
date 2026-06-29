@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
-import coding2 from "../assets/coding2.png";
+import coding5 from "../assets/coding5.jpeg";
 
 function Home() {
   const roles = useMemo(() => ["Web Developer", "Frontend Developer"], []);
@@ -106,7 +106,7 @@ function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <a
-                href="/resume_Rajveer.pdf"
+                href="/Rajveer_PR_Singh_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" bg-linear-to-r from-pink-400 to-blue-500  px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300 text-center "
@@ -172,9 +172,9 @@ function Home() {
         {/* right side */}
         <div className="">
           <motion.img
-            src={coding2}
+            src={coding5}
             alt="Rajveer"
-            className=" hover:animate-bounce w-full max-w-lg mx-auto"
+            className=" hover:animate-pulse rounded-full w-full max-w-lg mx-auto"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}

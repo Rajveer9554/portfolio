@@ -1,93 +1,73 @@
-import React from 'react'
-import coding1 from "../assets/coding1.png";
+import React from "react";
+import ProjectCard from "./ProjectCard";
+
+import project1 from "../assets/project1.png";
+import project2 from "../assets/project2.png";
+import project3 from "../assets/project3.png";
 
 function Project() {
+
+  const projects = [
+    {
+      image: project1,
+      title: "Awaze-E-Janata",
+      description:
+        "AI-powered complaint management platform where citizens can report local issues, track complaint status, and communicate with authorities.",
+      tech: ["React", "Tailwind", "Node", "MongoDB","JWT Authentication", "Agentic AI"],
+      live: "https://awaze-e-janta.vercel.app/",
+      github: "https://github.com/Rajveer9554/",
+    },
+    {
+      image: project2,
+      title: "Rajveer Portfolio",
+      description:
+        "Modern developer portfolio showcasing projects, skills, and achievements with smooth animations and responsive UI.",
+      tech: ["React", "Tailwind", "Framer Motion"],
+      live: "https://rajveer9554.github.io/Myself-portfolio/",
+      github: "https://github.com/Rajveer9554/",
+    },
+    {
+      image: project3,
+      title: "Tic Tac Toe",
+      description:
+        "Classic Tic Tac Toe game with JavaScript game logic, responsive UI, and dynamic winner detection.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      live: "https://rajveer9554.github.io/Tic-Tac-Toe/",
+      github: "https://github.com/Rajveer9554/",
+    },
+  ];
+
   return (
-    <div id='project' className='min-h-screen relative w-full bg-black text-white flex justify-center overflow-hidden '>
-      {/* main div */}
-      <div className='relative z-10 mt-10 w-full h-full max:w-7xl mx-auto px-4 grid grid:cols-1 lg:grid-cols-2  text-center' >
-       {/* left */}
-       <div className='relative'>
-        <img src={coding1} alt='img' className='w-full max-w-lg mx-auto'/>
-       </div>
-        {/* right */}   
-         <div className=" mb-10 justify-center  h-full lg:text-left relative lg:px-10 ">
-          {" "}
-          {/* create left  for large screen */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-green-600  drop-shadow-lg ">
-            {" "}
-            My Works
-          </h1>
-          <p className=" mt-2 text-base sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-light">
-            Here are some of my projects that showcase my skills and expertise in web development. 
-          </p>
-          <li className="mt-3 border-2 border-gray-500 p-4 rounded-lg  hover:shadow-lg hover:shadow-amber-500 transition-shadow">
-            <span className='text-xl font-bold'>
-            Awaze-E-Janata:👉🏻👉🏻
-            </span>
-            <a
-              href="https://awaze-e-janta.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-500 hover:underline transition-colors text-white"
-            >
-              Click Here
-            </a>
-            <h1 className="text-xl text-semibold text-white mt-1 ">
-              {" "}
-              Awaze-E-Janata is designed to give citizens a simple and efficient
-              way to report their problems using AI. I built this platform to
-              empower users, making it easier for them to communicate their
-              issues and for authorities to respond effectively. The project
-              also allowed me to enhance my MERN Stack skills, especially in
-              frontend design and AI integration. I have used
-              Technologies:React.js, Tailwind Css, Javascript{" "}
-            </h1>
-          </li>
-          <li className="mt-7 border-2 border-gray-500 p-4 rounded-lg  hover:shadow-lg hover:shadow-amber-500 transition-shadow">
-            <span className='text-xl font-bold mt-7'> Myself Porfolio:{" 👉🏻👉🏻 "} </span>
-            <a
-              href="https://rajveer9554.github.io/Myself-portfolio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-500 hover:underline transition-colors text-white"
-            >
-              Click Here
-            </a>
-            <h1 className="text-xl text-semibold text-white mt-1 ">
-              I created my personal portfolio to highlight my projects,
-              technical skills, and design abilities in one place. It allows me
-              to demonstrate my frontend expertise, creativity in UI/UX, and
-              working knowledge of frontend development, giving recruiters a
-              comprehensive view of my capabilities.
-            </h1>
-          </li>
-          <li className="mt-7 border-2 border-gray-500 p-4 rounded-lg hover:shadow-lg hover:shadow-amber-500 transition-shadow">
-            <span className='text-xl font-bold'> Tic-Tac-Toe:{" 👉🏻👉🏻 "} </span>
-            <a
-              href="https://rajveer9554.github.io/Tic-Tac-Toe/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-500 hover:underline transition-colors text-white"
-            >
-              Click Here
-            </a>
-            <h1 className="text-xl text-semibold text-white mt-1  ">
-              As a Practicing Coding and programming i have developed this
-              project usingHTML,CSS,Javascript. This Tic-Tac-Toe game is a web
-              application where two players take turns marking X and O on a 3x3
-              grid. The game checks for winning combinations and draws
-              dynamically using JavaScript logic. I built this project to
-              practice DOM manipulation, event handling, and responsive frontend
-              design while creating a fun interactive game.
-            </h1>
-          </li>
-          </div>
-        
+    <section
+      id="project"
+      className="bg-black min-h-screen text-white py-20"
+    >
+
+      <div className="max-w-7xl mx-auto px-6">
+
+        <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-green-500 bg-clip-text text-transparent">
+          My Works
+        </h1>
+
+        <p className="text-center text-gray-400 mt-4 mb-16">
+          Some of my featured projects.
+        </p>
+
+        <div className="grid lg:grid-cols-2 gap-10">
+
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              {...project}
+            />
+          ))}
+
+        </div>
+
       </div>
-      
-    </div>
-  )
+
+    </section>
+  );
 }
 
-export default Project
+export default Project;
