@@ -94,44 +94,20 @@ import ParticlesBackground from "../Components/ParticlesBackground";
 
 function About() {
   return (
-    <section
-      id="about"
-      className="w-full min-h-screen flex justify-center items-center relative bg-black text-white overflow-hidden px-4"
-    >
+    <section id="about" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black px-4 py-20 text-white sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <ParticlesBackground />
 
-      {/* Gradient Blobs */}
-      {/* <div className="absolute inset-0">
-        <div className="absolute -top-32 -left-32 w-[60vw] h-[60vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-green-400 to-blue-500 opacity-20 blur-[140px] animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-purple-500 to-pink-500 opacity-20 blur-[140px] animate-pulse delay-500" />
-      </div> */}
-
-      {/* Content Card */}
       <motion.div
-        className="
-          relative z-10
-          max-w-5xl
-          w-full
-          p-5
-          
-          
-          backdrop-blur-xl
-          
-          shadow-xl
-          mb-4
-          mt-4
-        "
+        className="relative z-10 w-full max-w-5xl rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl sm:p-8 lg:p-10"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-linear-to-r from-white to-purple-400">
-          Hello! I'm Rajveer Pratap Singh
+        <h2 className="mb-8 text-3xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-white to-purple-400 sm:text-4xl lg:text-5xl">
+          Hello! I&apos;m Rajveer Pratap Singh
         </h2>
 
-        {/* List */}
-        <ul className="space-y-5 text- leading-relaxed">
+        <ul className="space-y-4 text-sm leading-relaxed text-gray-200 sm:text-base lg:space-y-5">
           {[
             "A passionate Final-Year B.Tech Computer Science Student with a deep interest in building modern web applications.",
             "I specialize in creating beautiful, responsive, and interactive front-end designs using React.js, Tailwind CSS, and other cutting-edge tools.",
@@ -144,18 +120,8 @@ function About() {
           ].map((text, index) => (
             <motion.li
               key={index}
-              whileHover={{ scale: 1.02 }}
-              className="
-                p-3
-                rounded-xl
-                border-2 border-transparent
-                bg-white/0
-                hover:bg-white
-                hover:text-black
-                hover:border-purple-500
-                transition-all duration-300
-                cursor-pointer
-              "
+              whileHover={{ scale: 1.01 }}
+              className="cursor-pointer rounded-xl border border-transparent bg-white/0 p-3 transition-all duration-300 hover:border-purple-500 hover:bg-white hover:text-black"
             >
               {text}
             </motion.li>

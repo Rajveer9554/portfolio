@@ -1,186 +1,128 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ParticlesBackground from "../Components/ParticlesBackground.jsx";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
-import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import coding5 from "../assets/coding5.jpeg";
 
 function Home() {
-  const roles = useMemo(() => ["Web Developer", "Frontend Developer"], []);
+  const roles = useMemo(() => ["MERN Stack Developer","Web Developer","Agentic Ai", "Frontend Developer"], []);
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = roles[index]; // current role jisse type krna h
-    const timeout = setTimeout(
-      () => {
-        if (!deleting && subIndex < currentRole.length)
-          setSubIndex((v) => v + 1); // typing krna h
-        else if (!deleting && subIndex === currentRole.length)
-          setTimeout(() => setDeleting(true), 1200); // wait krna h thoda sa jb pura word type ho jaye
-        else if (deleting && subIndex > 0)
-          setSubIndex((v) => v - 1); // deleting krna h
-        else if (deleting && subIndex === 0) {
-          setDeleting(false);
-          setIndex((v) => (v + 1) % roles.length);
-        } // next role pr jana h
-      },
-      deleting ? 40 : 60,
-    ); // deleting fast krna h typing se
-    return () => clearTimeout(timeout); // cleanup krna h timeout ka
+    const currentRole = roles[index];
+    const timeout = setTimeout(() => {
+      if (!deleting && subIndex < currentRole.length) {
+        //setSubIndex((v) => v + 1) → ek character add karta hai
+        setSubIndex((v) => v + 1);
+      } else if (!deleting && subIndex === currentRole.length) {
+        setTimeout(() => setDeleting(true), 1200);
+      } else if (deleting && subIndex > 0) {
+        // setSubIndex((v) => v - 1) → ek character remove karta hai
+        setSubIndex((v) => v - 1);
+      } else if (deleting && subIndex === 0) {
+        setDeleting(false);
+        //setIndex((v) => (v + 1) % roles.length) → next role par jaata hai
+        setIndex((v) => (v + 1) % roles.length);
+      }
+    }, deleting ? 40 : 60);
+
+    return () => clearTimeout(timeout);
   }, [subIndex, deleting, index, roles]);
 
   return (
-    <section
-      id="home"
-      className="h-screen w-full relative bg-black overflow-hidden"
-    >
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black">
       <ParticlesBackground />
-      {/* div for hold 2 gradient circle */}
+
       <div className="absolute inset-0">
-        {/* // right top */}
-        <div
-          className="absolute -top-32 -left-32 w-[70vw] sm:w-[z-500vw] md:w-[50vw]  h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
-     bg-linear-to-r from-green-400 to-blue-500  filter  opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px]  animate-pulse"
-        ></div>
-        {/* //left bottom */}
-        <div
-          className="absolute bottom-0 right-0 w-[70vw] sm:w-[z-500vw] md:w-[50vw]  h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
-     bg-linear-to-r from-green-400 to-blue-500  filter  opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px]  animate-pulse delay-500"
-        ></div>
+        <div className="absolute -top-32 -left-32 h-[70vw] w-[70vw] max-h-[500px] max-w-[500px] rounded-full bg-linear-to-r from-green-400 to-blue-500 opacity-30 blur-[100px] animate-pulse sm:h-[50vw] sm:w-[50vw] sm:opacity-20 sm:blur-[130px] md:h-[40vw] md:w-[40vw] md:opacity-10 md:blur-[150px]" />
+        <div className="absolute bottom-0 right-0 h-[70vw] w-[70vw] max-h-[500px] max-w-[500px] rounded-full bg-linear-to-r from-green-400 to-blue-500 opacity-30 blur-[100px] animate-pulse delay-500 sm:h-[50vw] sm:w-[50vw] sm:opacity-20 sm:blur-[130px] md:h-[40vw] md:w-[40vw] md:opacity-10 md:blur-[150px]" />
       </div>
 
-      {/* content */}
-      <div className="relative z-10 mt-10 w-full h-full max:w-7xl mx-auto px-4 grid grid:cols-1 lg:grid-cols-2  text-center  ">
-        <div className=" flex flex-col justify-center text-center h-full lg:text-left relative ">
-          {" "}
-          {/* create left  for large screen */}
-          <div className="w-full lg:px-34 mx-auto max-w-[48rem] ">
-            {/* typerighter */}
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-20 sm:px-6 sm:py-24 lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:py-28">
+        <div className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+          <div className="w-full max-w-2xl">
             <motion.div
-              className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white  tracking-wide min-h-[1.6em] font-semibold "
+              className="mb-3 min-h-[1.6em] text-xl font-semibold tracking-wide text-white sm:text-2xl md:text-3xl lg:text-4xl"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span>{roles[index].substring(0, subIndex)}</span>
-              <span
-                className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle"
-                style={{ height: "1em" }}
-              ></span>
+              <span className="ml-1 inline-block w-[2px] animate-pulse bg-white align-middle" style={{ height: "1em" }} />
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-green-600  drop-shadow-2xl"
+              className="text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-green-600 drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1 }}
             >
-              Hello, I'm <br />{" "}
-              <span className=" font-bold text-5xl sm:text-xl md:text-7xl lg:text-5xl lg:whitespace-nowrap text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-green-600  drop-shadow-lg ">
+              Hello, I&apos;m <br />
+              <span className="text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-green-600 drop-shadow-lg sm:text-5xl md:text-6xl lg:text-5xl lg:whitespace-nowrap">
                 Rajveer Pratap Singh
-              </span>{" "}
-              <br />
+              </span>
             </motion.h1>
+
             <motion.p
-              className=" mt-6 text-base sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-light"
+              className="mx-auto mt-6 max-w-2xl text-base font-light text-gray-300 sm:text-lg lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              I’m a passionate and dedicated Full Stack Web Developer with a
-              strong focus on the MERN Stack (MongoDB, Express.js, React.js, and
-              Node.js). I love building modern, responsive, and user-friendly
-              web applications that solve real-world problems.
+              I&apos;m a passionate and dedicated Full Stack Web Developer with a strong focus on the MERN Stack. I love building modern, responsive, and user-friendly web applications that solve real-world problems.
             </motion.p>
 
-            {/* buttons */}
             <motion.div
-              className="mt-10 flex flex-row items-center justify-center lg:justify-start gap-4 "
+              className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <a
-                href="/Rajveer_PR_Singh_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" bg-linear-to-r from-pink-400 to-blue-500  px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300 text-center "
-                // initial={{opacity:0, y: 20}}
-                // animate={{opacity:1, y:0}}
-                // transition={{delay:0.6, duration:0.8}}
-              >
+              <a href="/Rajveer_PR_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full rounded-full bg-linear-to-r from-pink-400 to-blue-500 px-6 py-3 text-center font-semibold text-white shadow-lg transition-opacity duration-300 hover:opacity-90 sm:w-auto">
                 My Resume
               </a>
-
-              <a
-                href="#project"
-                className=" bg-linear-to-r from-pink-400 to-blue-500  px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300 text-center "
-                // initial={{opacity:0, y: 20}}
-                // animate={{opacity:1, y:0}}
-                // transition={{delay:0.6, duration:0.8}}
-              >
+              <a href="#project" className="w-full rounded-full bg-linear-to-r from-pink-400 to-blue-500 px-6 py-3 text-center font-semibold text-white shadow-lg transition-opacity duration-300 hover:opacity-90 sm:w-auto">
                 My Projects
               </a>
             </motion.div>
-            <div>
-              {/* social media icons */}
-              <motion.div
-                className="mt-5 flex flex-row items-center justify-center lg:justify-start gap-6 text-white text-3xl "
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                <a
-                  href="https://www.linkedin.com/in/rajveersingh9554"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin className="hover: transition-colors duration-300" />
-                </a>
-                <a
-                  href="https://github.com/Rajveer9554"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGithub className=" transition-colors duration-300" />
-                </a>
-                <a
-                  href="https://www.instagram.com/__rajveer_pra_14"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaInstagramSquare className=" transition-colors duration-300" />
-                </a>
-                <div className=" flex items-center  space-x-4 ">
-                  <a
-                    href="#contact"
-                    className="bg-linear-to-r  from-pink-400 t0-blue-500 px-5 text-white py-2 rounded-full font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300  "
-                  >
-                    Reach Out
-                  </a>
-                </div>
-              </motion.div>
-            </div>
+
+            <motion.div
+              className="mt-6 flex flex-wrap items-center justify-center gap-4 text-2xl text-white sm:justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            >
+              <a href="https://www.linkedin.com/in/rajveersingh9554" target="_blank" rel="noopener noreferrer" className="transition-colors duration-300 hover:text-cyan-400">
+                <FaLinkedin />
+              </a>
+              <a href="https://github.com/Rajveer9554" target="_blank" rel="noopener noreferrer" className="transition-colors duration-300 hover:text-cyan-400">
+                <FaGithub />
+              </a>
+              <a href="https://www.instagram.com/__rajveer_pra_14" target="_blank" rel="noopener noreferrer" className="transition-colors duration-300 hover:text-cyan-400">
+                <FaInstagramSquare />
+              </a>
+              <a href="#contact" className="rounded-full bg-linear-to-r from-pink-400 to-blue-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-opacity duration-300 hover:opacity-90">
+                Reach Out
+              </a>
+            </motion.div>
           </div>
         </div>
 
-        {/* right side */}
-        <div className="">
+        <div className="w-full">
           <motion.img
             src={coding5}
             alt="Rajveer"
-            className=" hover:animate-pulse rounded-full w-full max-w-lg mx-auto"
+            className="mx-auto w-full max-w-md rounded-full object-cover shadow-2xl hover:animate-pulse sm:max-w-lg"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           />
-          <p className="text-center font-bold  text-gray-400 italic text-xl animate-bounce">
-            💡Behind every successful app is a programmer who didn’t give up.
+          <p className="mt-4 text-center text-sm font-bold italic text-gray-400 sm:text-lg">
+            💡 Behind every successful app is a programmer who didn&apos;t give up.
           </p>
         </div>
       </div>

@@ -1,120 +1,56 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-import { FaReact } from "react-icons/fa";
-import { FaJsSquare } from "react-icons/fa";
-import { FaHtml5 } from "react-icons/fa6"
-import { FaCss3Alt } from "react-icons/fa";
+import { FaReact, FaJsSquare, FaHtml5, FaCss3Alt, FaGithub, FaNode, FaFigma } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiPostman } from "react-icons/si";
-import { FaGithub } from "react-icons/fa";
-import { FaNode } from "react-icons/fa6";
-import { FaFigma } from "react-icons/fa6";
 import coding3 from "../assets/coding3.png";
+
+const skills = [
+  { icon: <FaReact size={48} />, label: "React" },
+  { icon: <RiTailwindCssFill size={48} />, label: "Tailwind" },
+  { icon: <FaJsSquare size={48} />, label: "JavaScript" },
+  { icon: <FaHtml5 size={48} />, label: "HTML" },
+  { icon: <FaCss3Alt size={48} />, label: "CSS" },
+  { icon: <DiMongodb size={48} />, label: "MongoDB" },
+  { icon: <SiPostman size={48} />, label: "Postman" },
+  { icon: <FaGithub size={48} />, label: "GitHub" },
+  { icon: <FaNode size={48} />, label: "Node Js" },
+  { icon: <FaFigma size={48} />, label: "Figma" },
+];
 
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="w-full min-h-screen flex  justify-center relative bg-black text-white overflow-hidden "
-    >
+    <section id="skills" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black px-4 py-20 text-white sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <div className="absolute inset-0">
-        {/* // right top */}
-        <div
-          className="absolute -top-32 -left-32 w-[70vw] sm:w-[z-500vw] md:w-[50vw]  h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
-     bg-linear-to-r from-green-400 to-blue-500  filter  opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px]  animate-pulse"
-        ></div>
-        {/* //left bottom */}
-        <div
-          className="absolute bottom-0 right-0 w-[70vw] sm:w-[z-500vw] md:w-[50vw]  h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
-      bg-linear-to-r from-green-400 to-blue-500  filter  opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px]  animate-pulse delay-500"
-        ></div>
+        <div className="absolute -top-32 -left-32 h-[70vw] w-[70vw] max-h-[500px] max-w-[500px] rounded-full bg-linear-to-r from-green-400 to-blue-500 opacity-30 blur-[100px] animate-pulse sm:h-[50vw] sm:w-[50vw] sm:opacity-20 sm:blur-[130px] md:h-[40vw] md:w-[40vw] md:opacity-10 md:blur-[150px]" />
+        <div className="absolute bottom-0 right-0 h-[70vw] w-[70vw] max-h-[500px] max-w-[500px] rounded-full bg-linear-to-r from-green-400 to-blue-500 opacity-30 blur-[100px] animate-pulse delay-500 sm:h-[50vw] sm:w-[50vw] sm:opacity-20 sm:blur-[130px] md:h-[40vw] md:w-[40vw] md:opacity-10 md:blur-[150px]" />
       </div>
-      {/* content */}
-      <div className="relative z-10 mt-10 w-full h-full max:w-7xl mx-auto px-4 grid grid:cols-1 lg:grid-cols-2  text-center  ">
-        <div className=" flex flex-col justify-center text-center h-full lg:text-left relative lg:px-10 ">
-          {" "}
-          {/* create left  for large screen */}
-          <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-green-600  drop-shadow-lg ">
-            {" "}
+
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-green-600 drop-shadow-lg sm:text-5xl lg:text-6xl">
             My Skills
           </h1>
-         <motion.div
-  className="
-    flex 
-    gap-5
-    flex-wrap 
-    mt-40 
-    text-gray-300 
-    max-w-2xl 
-    text-center
-    lg:mx-0 animate-pulse mx-auto
-  "
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
->
-  {/* Skill Item */}
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 hover:border-green-400 rounded-2xl">
-    <FaReact size={60} className="hover:text-cyan-400 transition-colors duration-300" />
-    <p>React</p>
-  </div>
 
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <RiTailwindCssFill size={60} className="hover:text-sky-400 transition-colors duration-300" />
-    <p>Tailwind</p>
-  </div>
-
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <FaJsSquare size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>JavaScript</p>
-  </div>
-
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl hover:border-green-400">
-    <FaHtml5 size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>HTML</p>
-  </div>
-
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <FaCss3Alt size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>CSS</p>
-  </div>
-
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <DiMongodb size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>MongoDB</p>
-  </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl hover:border-green-400">
-    <SiPostman size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>Postman</p>
-  </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <FaGithub size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>GitHub</p>
-  </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl  hover:border-green-400">
-    <FaNode size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>Node Js</p>
-  </div>
-  <div className="w-1/2 sm:w-1/3 lg:w-1/5 flex flex-col items-center gap-2 mb-12 border-5 rounded-2xl ">
-    <FaFigma  size={60} className="hover:text-yellow-400 transition-colors duration-300" />
-    <p>Figma</p>
-  </div>
-</motion.div>
-
+          <motion.div
+            className="mt-8 grid w-full grid-cols-2 gap-4 text-gray-300 sm:grid-cols-3 lg:mt-10 lg:grid-cols-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            {skills.map((skill, index) => (
+              <div key={index} className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-4 text-center transition-all duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20">
+                <div className="transition-colors duration-300 hover:text-cyan-400">{skill.icon}</div>
+                <p className="text-sm sm:text-base">{skill.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* right */}
-        <div className="relative">
-          <motion.img
-            src={coding3}
-
-            alt="Rajveer"
-            className="mt-10 hover:animate-pulse w-full max-w-lg mx-auto"
-          />
-         </div>
-
+        <div className="flex items-center justify-center">
+          <motion.img src={coding3} alt="Rajveer" className="mt-2 w-full max-w-md rounded-3xl object-cover hover:animate-pulse sm:max-w-lg" />
+        </div>
       </div>
     </section>
   );

@@ -1,107 +1,81 @@
-import React, { use, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import OverlayMenu from './OverlayMenu.jsx';
 import logo from '../assets/logo.png';
-import { CiMenuFries } from "react-icons/ci";
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import { CiMenuFries } from 'react-icons/ci';
+
 export default function Navbar() {
-const [menuOpen, setMenuOpen]= useState(false);
-const [visible ,setVisible]= useState(true);
-const [forceVisible, setForceVisible]= useState(false); /// jb home page visible ho tb navbar visible rhe
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [forceVisible, setForceVisible] = useState(false);
 
-const lastScrollY= useRef(0); // jo bhi hm scroll kr rhe h uska last position store krne k liye
-const timerId= useRef(null); /// timeout id store krne k liye jisse hm navbar ko auto hide kr paye
+  const lastScrollY = useRef(0);
+  const timerId = useRef(null);
 
-useEffect(()=>{
-  const homeSection= document.getElementById('#home');
-  const observer= new IntersectionObserver(([entry])=>{
-    if(entry[0].isIntersecting){
-      setForceVisible(true); // jb home section visible hoga tb navbar visible rhega
-    }
-    else{
-      setForceVisible(false); // jb home section visible nhi hoga tb scroll based visibility pr depend krega
-    }
-  }, {threshold:0.1} // 10% of home section visible hoga to consider krna
-)
-if(homeSection){ // if home section exist krta h to hi observe krna start krna
-  observer.observe(homeSection);
+  useEffect(() => {
+    const homeSection = document.getElementById('home');
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setForceVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-}
-return()=>{
-  if(homeSection){
-    observer.unobserve(homeSection); // cleanup krna jb component unmount ho jaye
-  }
-}
-},[]) // run only once on mount
+    if (homeSection) {
+      observer.observe(homeSection);
+    }
 
- useEffect(()=>{
-  const handleScroll=()=>{
-    if(forceVisible){
-      setVisible(true); // jb home section visible h to navbar visible rhega
-      return;
-    }
-    const currentScrollY= window.scrollY;
-    if(currentScrollY < lastScrollY.current){
-      setVisible(true); // scrolling up kr rhe h to navbar show krdo
-    }
-    else{
-      setVisible(false); // scrolling down kr rhe h to navbar hide krdo
-      if(timerId.current){
-        clearTimeout (timerId.current); // previous timeout clear krdo
+    return () => {
+      if (homeSection) {
+        observer.unobserve(homeSection);
       }
-      timerId.current= setTimeout(()=>{
-        setVisible(true); // 3 seconds baad navbar show krdo
-      },3000);  
+    };
+  }, []);
 
-    }
-    lastScrollY.current= currentScrollY; // update last scroll position
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (forceVisible) {
+        setVisible(true);
+        return;
+      }
 
-  window.addEventListener('scroll', handleScroll , {passive:true});
-  return()=>{
-    window.removeEventListener('scroll', handleScroll);// cleanup krdo jb component unmount ho jaye
-    if(timerId.current){
-      clearTimeout(timerId.current); // timeout bhi clear krdo
-    }
-  };
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < lastScrollY.current) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+        if (timerId.current) {
+          clearTimeout(timerId.current);
+        }
+        timerId.current = setTimeout(() => {
+          setVisible(true);
+        }, 3000);
+      }
+      lastScrollY.current = currentScrollY;
+    };
 
-})
-
-
-
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timerId.current) {
+        clearTimeout(timerId.current);
+      }
+    };
+  }, [forceVisible]);
 
   return (
     <>
-    <nav className={'fixed top-0 left-0 w-full flex items-center justify-between lg:px-10 py-4 z-50 sm:px-2 transition-transform duration-300 '}>
-  <div className=' flex items-center '>
-    <img src={logo} alt="Logo" className="   lg:w-60 lg:h-30 h-20 w-30  "/>
-{/* <div className='text-bold text-xl text-white hidden sm:block'>
-  Rajveer Pratap Singh
-</div> */}
-  </div>
+      <nav className={`fixed left-0 top-0 z-50 flex w-full items-center justify-between px-4 py-3 transition-transform duration-300 sm:px-6 lg:px-10 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="flex items-center">
+          <img src={logo} alt="Logo" className="h-16 w-24 lg:h-24 lg:w-40" />
+        </div>
 
-  <div className=' flex flex-row lg:gap-10 sm:gap-1 '>
-   <button 
-   onClick={()=>{ setMenuOpen(true);
-   }}
-   className=' text-3xl focus:outline-none '
-   >
-
-   <CiMenuFries />
-   </button>
-  
-
-  {/* <div className=' flex items-center  space-x-4 '>
-    <a href="#contact" 
-    className='bg-linear-to-r  from-pink-400 t0-blue-500 px-5 text-white py-2 rounded-full font-semibold shadow-lg hover:opacity-90 transition-opacity duration-300  '>
-      Reach Out
-      </a>
-  </div> */}
-  </div>
-    </nav>
-      <OverlayMenu isOpen={menuOpen} onClose={()=> setMenuOpen(false)} />
+        <div className="flex items-center">
+          <button onClick={() => setMenuOpen(true)} className="rounded-full border border-white/20 p-2 text-3xl text-white focus:outline-none" aria-label="Open menu">
+            <CiMenuFries />
+          </button>
+        </div>
+      </nav>
+      <OverlayMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
-  )
+  );
 }
-
